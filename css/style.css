@@ -1,0 +1,2436 @@
+/* =================================
+   SIPINTAR - MAIN STYLE
+================================= */
+
+:root {
+    --cream: #F8F0E3;
+    --cream-dark: #EFE2D0;
+    --brown: #60351F;
+    --brown-light: #89674F;
+    --orange: #E99A42;
+    --amber: #C87532;
+    --white: #FFFFFF;
+    --text: #493020;
+    --shadow: 0 15px 45px rgba(96, 53, 31, 0.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* =================================
+   LOADING SCREEN
+================================= */
+
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    width: 90%;
+    max-width: 430px;
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+.logo-placeholder {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 20px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    color: var(--brown);
+    font-size: 65px;
+    font-weight: 800;
+    box-shadow: var(--shadow);
+}
+
+.loading-content h1,
+.login-brand h1 {
+    color: var(--brown);
+    font-size: 39px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.loading-content > p {
+    color: var(--brown-light);
+    font-size: 12px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 9px;
+    background: var(--cream-dark);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 35px;
+}
+
+#loading-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--brown),
+        var(--amber),
+        var(--orange)
+    );
+    border-radius: 20px;
+    transition: width 0.1s linear;
+}
+
+.loading-content h2 {
+    color: var(--brown);
+    font-size: 23px;
+    margin-top: 15px;
+}
+
+.loading-content > span {
+    display: block;
+    margin-top: 12px;
+    color: var(--brown-light);
+    font-size: 12px;
+}
+
+/* =================================
+   LOGIN PAGE
+================================= */
+
+#login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(233, 154, 66, 0.18),
+            transparent 35%
+        ),
+        var(--cream);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 35px;
+    border-radius: 28px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    animation: appear 0.7s ease;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.office-logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border: 1px dashed var(--cream-dark);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown-light);
+    font-size: 10px;
+}
+
+.login-brand .logo-placeholder {
+    width: 65px;
+    height: 65px;
+    font-size: 43px;
+    border-radius: 19px;
+    margin-bottom: 12px;
+}
+
+.login-brand h1 {
+    font-size: 32px;
+}
+
+.login-brand p {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--brown-light);
+}
+
+.login-form h2 {
+    color: var(--brown);
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.login-form > p {
+    color: var(--brown-light);
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.login-form label {
+    display: block;
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 700;
+    margin: 18px 0 8px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 13px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+    background: #FFFCF7;
+    transition: 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 4px rgba(200, 117, 50, 0.10);
+}
+
+.login-form input::placeholder {
+    color: #B6A18D;
+}
+
+.login-form button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 16px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(
+        135deg,
+        var(--brown),
+        var(--amber)
+    );
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(96, 53, 31, 0.20);
+}
+
+#login-message {
+    margin-top: 14px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.login-container footer {
+    text-align: center;
+    color: #B6A18D;
+    font-size: 10px;
+    margin-top: 30px;
+}
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   RESPONSIVE - MOBILE
+================================= */
+
+@media (max-width: 480px) {
+
+    .loading-content h1 {
+        font-size: 32px;
+    }
+
+    .loading-content > p {
+        font-size: 10px;
+    }
+
+    .login-container {
+        padding: 27px 22px;
+        border-radius: 23px;
+    }
+
+    .login-brand h1 {
+        font-size: 28px;
+    }
+
+    .login-form h2 {
+        font-size: 21px;
+    }
+}
+.sipintar-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+.office-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+/* =================================
+   DASHBOARD SIPINTAR
+================================= */
+
+#dashboard-screen {
+    min-height: 100vh;
+    background: var(--cream);
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.dashboard-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashboard-brand h1 {
+    color: var(--dark-brown);
+    font-size: 22px;
+}
+
+.dashboard-brand p {
+    color: var(--brown-light);
+    font-size: 11px;
+}
+
+#logout-button {
+    background: var(--dark-brown);
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dashboard-content {
+    padding: 40px 5%;
+}
+
+.dashboard-content h2 {
+    color: var(--dark-brown);
+    margin-bottom: 8px;
+}
+
+.dashboard-content > p {
+    color: var(--brown-light);
+    margin-bottom: 25px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.dashboard-card span {
+    color: var(--brown-light);
+    font-size: 13px;
+}
+
+.dashboard-card h3 {
+    color: var(--dark-brown);
+    font-size: 30px;
+    margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-content {
+        padding: 25px 5%;
+    }
+}
+
+@media (max-width: 380px) {
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* =================================
+   SIDEBAR NAVIGATION
+================================= */
+
+#dashboard-screen {
+    min-height: 100vh;
+    display: flex;
+    background: var(--cream);
+}
+
+#dashboard-screen.hidden {
+    display: none !important;
+}
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: var(--dark-brown);
+    color: white;
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px 30px;
+}
+
+.sidebar-brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.sidebar-brand h2 {
+    font-size: 19px;
+}
+
+.sidebar-brand small {
+    color: #E9C9A8;
+    font-size: 10px;
+}
+
+.menu-label {
+    color: #D9B99C;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 10px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-item {
+    border: none;
+    background: transparent;
+    color: #F8F0E3;
+    text-align: left;
+    padding: 13px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-item span {
+    display: inline-block;
+    width: 28px;
+    font-size: 17px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--amber);
+    color: white;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 30px;
+}
+
+.logout-menu {
+    width: 100%;
+    border: 1px solid #A77C5D;
+    background: transparent;
+    color: white;
+    padding: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.logout-menu:hover {
+    background: #7B452B;
+}
+
+.main-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar {
+    background: white;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--dark-brown);
+    font-weight: 600;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+#sidebar-toggle {
+    display: none;
+    border: none;
+    background: var(--cream);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.dashboard-content {
+    padding: 35px;
+}
+
+.dashboard-content h2 {
+    color: var(--dark-brown);
+    margin-bottom: 8px;
+}
+
+.dashboard-content > p {
+    color: var(--brown-light);
+    margin-bottom: 25px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.dashboard-card span {
+    color: var(--brown-light);
+    font-size: 13px;
+}
+
+.dashboard-card h3 {
+    color: var(--dark-brown);
+    font-size: 30px;
+    margin-top: 12px;
+}
+
+.welcome-panel {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #F0DDC5;
+    color: var(--dark-brown);
+}
+
+.welcome-panel p {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+@media (min-width: 1000px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        position: fixed;
+        z-index: 100;
+        left: -260px;
+        top: 0;
+        transition: 0.3s;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    #sidebar-toggle {
+        display: block;
+    }
+
+    .dashboard-content {
+        padding: 22px 16px;
+    }
+
+    .topbar {
+        padding: 15px;
+    }
+}
+/* Perbaikan area dashboard dan scroll */
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#dashboard-screen {
+    min-height: 100vh;
+    height: auto;
+    align-items: stretch;
+}
+
+.main-area {
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.dashboard-content {
+    min-height: calc(100vh - 70px);
+    height: auto;
+    overflow: visible;
+    padding-bottom: 50px;
+}
+
+.dashboard-cards {
+    width: 100%;
+    align-items: stretch;
+}
+
+.dashboard-card {
+    min-width: 0;
+    min-height: 140px;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 700px) {
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* =================================
+   SIPINTAR - DATA BARANG
+================================= */
+
+.barang-form-panel,
+.barang-table-panel {
+    background: var(--white);
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 24px;
+    box-shadow: var(--shadow);
+}
+
+.barang-form-panel h3,
+.barang-table-panel h3 {
+    color: var(--brown);
+    margin-bottom: 20px;
+}
+
+.form-barang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 9px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--orange);
+    border-color: var(--orange);
+}
+
+.form-group small {
+    color: var(--brown-light);
+    font-size: 12px;
+}
+
+.foto-preview-container {
+    margin-top: 10px;
+}
+
+.foto-preview-container img {
+    width: 130px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--cream-dark);
+}
+
+.barang-form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.barang-form-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--brown);
+    color: var(--white);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#batal-edit-barang {
+    background: var(--brown-light);
+}
+
+#pesan-barang {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.barang-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.barang-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.barang-table th,
+.barang-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--cream-dark);
+    text-align: left;
+    color: var(--text);
+}
+
+.barang-table th {
+    background: var(--cream);
+    color: var(--brown);
+}
+
+.foto-tabel-barang {
+    width: 65px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.aksi-barang {
+    display: flex;
+    gap: 6px;
+}
+
+.aksi-barang button {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.tombol-edit-barang {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.tombol-hapus-barang {
+    background: #a94442;
+    color: var(--white);
+}
+
+@media (max-width: 600px) {
+    .form-barang-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .barang-form-panel,
+    .barang-table-panel {
+        padding: 16px;
+    }
+}
+/* =================================
+   SIPINTAR - KATALOG BARANG
+================================= */
+
+.katalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 22px 0 16px;
+    color: var(--brown-light);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.katalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.katalog-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.katalog-card:hover {
+    transform: translateY(-4px);
+}
+
+.katalog-card img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    background: var(--cream);
+}
+
+.katalog-card-body {
+    padding: 13px;
+}
+
+.katalog-card-body h3 {
+    color: var(--brown);
+    font-size: 14px;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.katalog-card-body p {
+    color: var(--brown-light);
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.katalog-stok {
+    display: inline-block;
+    color: var(--brown);
+    background: var(--cream);
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.katalog-stok.habis {
+    color: #a94442;
+    background: #f9e5e3;
+}
+
+.katalog-kosong {
+    grid-column: 1 / -1;
+    padding: 30px;
+    text-align: center;
+    color: var(--brown-light);
+    background: var(--white);
+    border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+    .katalog-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .katalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .katalog-card img {
+        height: 115px;
+    }
+
+    .katalog-card-body {
+        padding: 10px;
+    }
+}
+/* =================================
+   SIPINTAR - TAMPILAN PEMINJAMAN
+================================= */
+
+#page-peminjaman {
+    width: 100%;
+    min-width: 0;
+}
+
+#page-peminjaman > h2 {
+    color: var(--brown);
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+#page-peminjaman > p {
+    color: var(--brown-light);
+    margin-bottom: 24px;
+}
+
+
+/* PANEL FORM DAN TABEL */
+
+#page-peminjaman .barang-form-panel,
+#page-peminjaman .barang-table-panel {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 25px rgba(96, 53, 31, 0.06);
+}
+
+#page-peminjaman .barang-form-panel h3,
+#page-peminjaman .barang-table-panel h3 {
+    color: var(--brown);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+
+/* FORM LAPTOP */
+
+#page-peminjaman .form-barang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#page-peminjaman .form-group {
+    min-width: 0;
+}
+
+#page-peminjaman .form-group label {
+    display: block;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+#page-peminjaman .form-group input,
+#page-peminjaman .form-group select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 10px;
+    background: #FFFCF7;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#page-peminjaman .form-group input:focus,
+#page-peminjaman .form-group select:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(200, 117, 50, 0.12);
+}
+
+#page-peminjaman .form-group select:disabled {
+    background: var(--cream);
+    color: var(--brown-light);
+    cursor: not-allowed;
+}
+
+
+/* TOMBOL SIMPAN */
+
+#page-peminjaman .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+#page-peminjaman .form-actions button {
+    min-height: 44px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: var(--brown);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#page-peminjaman .form-actions button:hover {
+    background: var(--amber);
+    transform: translateY(-1px);
+}
+
+
+/* PESAN PEMINJAMAN */
+
+#pesan-peminjaman {
+    margin-top: 15px;
+    color: var(--brown);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+
+/* TABEL PEMINJAMAN */
+
+#page-peminjaman .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+#page-peminjaman .barang-table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+#page-peminjaman .barang-table th {
+    background: var(--cream);
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 15px 13px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#page-peminjaman .barang-table td {
+    padding: 14px 13px;
+    border-bottom: 1px solid var(--cream-dark);
+    color: var(--text);
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+#page-peminjaman .barang-table tbody tr:hover {
+    background: #FFFCF7;
+}
+
+
+/* STATUS PEMINJAMAN */
+
+.status-peminjaman {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #FFF0D9;
+    color: #9A5A1C;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+
+/* =================================
+   RESPONSIVE - TABLET DAN HP
+================================= */
+
+@media (max-width: 768px) {
+
+    #page-peminjaman > h2 {
+        font-size: 21px;
+    }
+
+    #page-peminjaman .barang-form-panel,
+    #page-peminjaman .barang-table-panel {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    #page-peminjaman .form-barang-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #page-peminjaman .form-actions {
+        justify-content: stretch;
+    }
+
+    #page-peminjaman .form-actions button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #page-peminjaman .barang-form-panel,
+    #page-peminjaman .barang-table-panel {
+        padding: 15px;
+    }
+
+    #page-peminjaman .barang-form-panel h3,
+    #page-peminjaman .barang-table-panel h3 {
+        font-size: 16px;
+    }
+
+    #page-peminjaman .form-group input,
+    #page-peminjaman .form-group select {
+        min-height: 45px;
+        font-size: 13px;
+    }
+
+    #pesan-peminjaman {
+        font-size: 12px;
+    }
+
+}
+/* =========================================
+   SIPINTAR - HALAMAN PENGEMBALIAN
+========================================= */
+
+#page-pengembalian {
+    width: 100%;
+    padding-bottom: 35px;
+}
+
+#page-pengembalian .page-header {
+    margin-bottom: 24px;
+}
+
+#page-pengembalian .page-header h2 {
+    color: var(--brown);
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+#page-pengembalian .page-header p {
+    color: var(--brown-light);
+    font-size: 14px;
+}
+
+/* PANEL FORM DAN TABEL */
+
+#page-pengembalian .barang-form-panel,
+#page-pengembalian .barang-table-panel {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 24px;
+    box-shadow: 0 5px 18px rgba(96, 53, 31, 0.06);
+}
+
+#page-pengembalian .barang-form-panel h3,
+#page-pengembalian .barang-table-panel h3 {
+    color: var(--brown);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+/* FORM */
+
+#page-pengembalian #form-pengembalian {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+#page-pengembalian .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#page-pengembalian .form-group label {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#page-pengembalian .form-group input,
+#page-pengembalian .form-group select,
+#page-pengembalian .form-group textarea {
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 14px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 10px;
+    background: #FFFCF8;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+#page-pengembalian .form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+#page-pengembalian .form-group input:focus,
+#page-pengembalian .form-group select:focus,
+#page-pengembalian .form-group textarea:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(200, 117, 50, 0.12);
+}
+
+#page-pengembalian .form-group input:disabled,
+#page-pengembalian .form-group select:disabled {
+    background: #F1ECE5;
+    color: #948578;
+    cursor: not-allowed;
+}
+
+/* DETAIL TRANSAKSI */
+
+#page-pengembalian .detail-pengembalian {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 18px;
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px;
+}
+
+#page-pengembalian .detail-pengembalian p {
+    padding: 10px 12px;
+    background: var(--white);
+    border-radius: 8px;
+    color: var(--brown-light);
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#page-pengembalian .detail-pengembalian strong {
+    color: var(--brown);
+}
+
+/* TOMBOL */
+
+#page-pengembalian #simpan-pengembalian {
+    align-self: flex-start;
+    min-height: 44px;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 10px;
+    background: var(--brown);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#page-pengembalian #simpan-pengembalian:hover:not(:disabled) {
+    background: var(--amber);
+    transform: translateY(-1px);
+}
+
+#page-pengembalian #simpan-pengembalian:disabled {
+    background: #B9AA9C;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* PESAN */
+
+#page-pengembalian #pesan-pengembalian {
+    color: #397A4B;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* TABEL */
+
+#page-pengembalian .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+#page-pengembalian .barang-table-panel table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+#page-pengembalian .barang-table-panel table thead {
+    background: var(--cream);
+}
+
+#page-pengembalian .barang-table-panel table th {
+    padding: 14px 12px;
+    color: var(--brown);
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--cream-dark);
+}
+
+#page-pengembalian .barang-table-panel table td {
+    padding: 14px 12px;
+    color: var(--text);
+    border-bottom: 1px solid #F0E9E0;
+    white-space: nowrap;
+}
+
+#page-pengembalian .barang-table-panel table tbody tr:hover {
+    background: #FFFAF3;
+}
+
+#page-pengembalian .barang-table-panel table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* STATUS */
+
+#page-pengembalian .status-peminjaman {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #FFF0D9;
+    color: #A45D1F;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 768px) {
+    #page-pengembalian .barang-form-panel,
+    #page-pengembalian .barang-table-panel {
+        padding: 20px;
+    }
+
+    #page-pengembalian .detail-pengembalian {
+        grid-template-columns: 1fr;
+    }
+
+    #page-pengembalian .page-header h2 {
+        font-size: 22px;
+    }
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 480px) {
+    #page-pengembalian .barang-form-panel,
+    #page-pengembalian .barang-table-panel {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    #page-pengembalian .barang-form-panel h3,
+    #page-pengembalian .barang-table-panel h3 {
+        font-size: 16px;
+    }
+
+    #page-pengembalian .detail-pengembalian {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    #page-pengembalian #simpan-pengembalian {
+        width: 100%;
+    }
+
+    #page-pengembalian .page-header h2 {
+        font-size: 20px;
+    }
+}
+/* =====================================
+   SIPINTAR - HALAMAN RIWAYAT TRANSAKSI
+===================================== */
+
+#page-riwayat {
+    padding-bottom: 35px;
+}
+
+#page-riwayat .page-header {
+    margin-bottom: 25px;
+}
+
+#page-riwayat .page-header h2 {
+    color: var(--brown);
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+#page-riwayat .page-header p {
+    color: var(--brown-light);
+    font-size: 13px;
+}
+
+/* RINGKASAN */
+
+.riwayat-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.riwayat-summary-card {
+    background: #FFFFFF;
+    padding: 23px;
+    border-radius: 16px;
+    border: 1px solid #EFE2D0;
+    box-shadow: 0 5px 18px rgba(96, 53, 31, 0.06);
+    transition: 0.25s ease;
+}
+
+.riwayat-summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(96, 53, 31, 0.10);
+}
+
+.riwayat-summary-card span {
+    display: block;
+    color: #89674F;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.riwayat-summary-card h3 {
+    color: #60351F;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+/* PANEL RIWAYAT */
+
+.riwayat-panel {
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid #EFE2D0;
+    box-shadow: 0 5px 20px rgba(96, 53, 31, 0.06);
+    overflow: hidden;
+}
+
+.riwayat-heading {
+    margin-bottom: 22px;
+}
+
+.riwayat-heading h3 {
+    color: #60351F;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.riwayat-heading p {
+    color: #89674F;
+    font-size: 12px;
+}
+
+/* PENCARIAN DAN FILTER */
+
+.riwayat-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 18px;
+}
+
+.riwayat-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F8F0E3;
+    border: 1px solid #EFE2D0;
+    border-radius: 12px;
+    padding: 0 15px;
+    min-height: 48px;
+    transition: 0.2s ease;
+}
+
+.riwayat-search:focus-within {
+    border-color: #C87532;
+    box-shadow: 0 0 0 3px rgba(200, 117, 50, 0.12);
+}
+
+.riwayat-search span {
+    color: #89674F;
+    font-size: 25px;
+}
+
+.riwayat-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #493020;
+    font-size: 13px;
+}
+
+.riwayat-search input::placeholder {
+    color: #A58B77;
+}
+
+.riwayat-filter-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.riwayat-filter-group select,
+.riwayat-filter-group input {
+    min-height: 43px;
+    padding: 0 12px;
+    border: 1px solid #EFE2D0;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #493020;
+    outline: none;
+    font-size: 12px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.riwayat-filter-group select:focus,
+.riwayat-filter-group input:focus {
+    border-color: #C87532;
+}
+
+#reset-filter-riwayat {
+    min-height: 43px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 10px;
+    background: #60351F;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#reset-filter-riwayat:hover {
+    background: #89674F;
+}
+
+/* INFORMASI HASIL */
+
+.riwayat-info {
+    color: #89674F;
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+
+/* TABEL */
+
+#page-riwayat .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+#page-riwayat .barang-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+#page-riwayat .barang-table th {
+    background: #F8F0E3;
+    color: #60351F;
+    padding: 15px 13px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #EFE2D0;
+}
+
+#page-riwayat .barang-table td {
+    padding: 14px 13px;
+    color: #493020;
+    font-size: 12px;
+    border-bottom: 1px solid #F3EAE0;
+    white-space: nowrap;
+}
+
+#page-riwayat .barang-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+#page-riwayat .barang-table tbody tr:hover {
+    background: #FFFAF4;
+}
+
+#page-riwayat .riwayat-kosong {
+    text-align: center;
+    padding: 35px 15px !important;
+    color: #89674F !important;
+}
+
+/* STATUS TRANSAKSI */
+
+.riwayat-status {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.riwayat-status.status-dipinjam {
+    background: #FFF0D9;
+    color: #A65D16;
+}
+
+.riwayat-status.status-sebagian {
+    background: #FCE7D5;
+    color: #B65B22;
+}
+
+.riwayat-status.status-selesai {
+    background: #E5F3E8;
+    color: #367348;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 768px) {
+    .riwayat-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .riwayat-summary-card {
+        padding: 17px;
+    }
+
+    .riwayat-summary-card:last-child {
+        grid-column: span 2;
+    }
+
+    .riwayat-panel {
+        padding: 17px;
+    }
+
+    .riwayat-filter-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #reset-filter-riwayat {
+        grid-column: span 2;
+    }
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 480px) {
+    #page-riwayat .page-header h2 {
+        font-size: 21px;
+    }
+
+    .riwayat-summary {
+        gap: 9px;
+    }
+
+    .riwayat-summary-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .riwayat-summary-card span {
+        font-size: 11px;
+    }
+
+    .riwayat-summary-card h3 {
+        font-size: 24px;
+    }
+
+    .riwayat-panel {
+        padding: 13px;
+        border-radius: 14px;
+    }
+
+    .riwayat-heading h3 {
+        font-size: 16px;
+    }
+
+    .riwayat-filter-group {
+        grid-template-columns: 1fr;
+    }
+
+    .riwayat-filter-group select,
+    .riwayat-filter-group input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #reset-filter-riwayat {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+/* =====================================
+   SIPINTAR - HALAMAN LAPORAN
+===================================== */
+
+#page-laporan {
+    padding-bottom: 35px;
+}
+
+#page-laporan .page-header {
+    margin-bottom: 25px;
+}
+
+#page-laporan .page-header h2 {
+    color: #60351F;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+#page-laporan .page-header p {
+    color: #89674F;
+    font-size: 13px;
+}
+
+/* RINGKASAN */
+
+.laporan-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 23px;
+}
+
+.laporan-summary-card {
+    background: #FFFFFF;
+    padding: 23px;
+    border: 1px solid #EFE2D0;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(96, 53, 31, 0.06);
+    transition: 0.25s ease;
+}
+
+.laporan-summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(96, 53, 31, 0.10);
+}
+
+.laporan-summary-card span {
+    display: block;
+    color: #89674F;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.laporan-summary-card h3 {
+    color: #60351F;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+/* PANEL */
+
+.laporan-panel {
+    background: #FFFFFF;
+    padding: 24px;
+    border: 1px solid #EFE2D0;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(96, 53, 31, 0.06);
+    margin-bottom: 22px;
+}
+
+.laporan-panel-heading {
+    margin-bottom: 20px;
+}
+
+.laporan-panel-heading h3 {
+    color: #60351F;
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.laporan-panel-heading p {
+    color: #89674F;
+    font-size: 12px;
+}
+
+/* FILTER TANGGAL */
+
+.laporan-filter {
+    display: flex;
+    align-items: end;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.laporan-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 170px;
+}
+
+.laporan-field label {
+    color: #60351F;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.laporan-field input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid #EFE2D0;
+    border-radius: 10px;
+    color: #493020;
+    background: #FFFCF8;
+    outline: none;
+    font-size: 12px;
+}
+
+.laporan-field input:focus {
+    border-color: #C87532;
+    box-shadow: 0 0 0 3px rgba(200, 117, 50, 0.10);
+}
+
+#laporan-reset,
+#laporan-cetak {
+    min-height: 44px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#laporan-reset {
+    background: #F8F0E3;
+    color: #60351F;
+}
+
+#laporan-reset:hover {
+    background: #EFE2D0;
+}
+
+#laporan-cetak {
+    background: #60351F;
+    color: #FFFFFF;
+}
+
+#laporan-cetak:hover {
+    background: #89674F;
+}
+
+/* REKAP STATUS */
+
+.laporan-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.laporan-status-card {
+    background: #FFFAF4;
+    border: 1px solid #EFE2D0;
+    border-radius: 13px;
+    padding: 19px;
+}
+
+.laporan-status-card span {
+    color: #89674F;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.laporan-status-card h3 {
+    color: #60351F;
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 9px;
+}
+
+/* TABEL LAPORAN */
+
+#page-laporan .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+#page-laporan .barang-table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+#page-laporan .barang-table th {
+    background: #F8F0E3;
+    color: #60351F;
+    padding: 15px 13px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #EFE2D0;
+}
+
+#page-laporan .barang-table td {
+    padding: 14px 13px;
+    color: #493020;
+    font-size: 12px;
+    border-bottom: 1px solid #F3EAE0;
+    white-space: nowrap;
+}
+
+#page-laporan .barang-table tbody tr:hover {
+    background: #FFFAF4;
+}
+
+#page-laporan .barang-table tbody td[colspan] {
+    text-align: center;
+    padding: 30px 15px;
+    color: #89674F;
+}
+
+/* CETAK LAPORAN */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #page-laporan,
+    #page-laporan * {
+        visibility: visible;
+    }
+
+    #page-laporan {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 15px;
+        background: #FFFFFF;
+    }
+
+    #page-laporan .laporan-filter,
+    #page-laporan .laporan-filter button {
+        display: none !important;
+    }
+
+    #page-laporan .laporan-panel,
+    #page-laporan .laporan-summary-card {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    #page-laporan .table-responsive {
+        overflow: visible;
+    }
+
+    #page-laporan .barang-table {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #page-laporan .barang-table th,
+    #page-laporan .barang-table td {
+        font-size: 9px;
+        padding: 7px 5px;
+    }
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 768px) {
+    .laporan-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .laporan-summary-card:last-child {
+        grid-column: span 2;
+    }
+
+    .laporan-panel {
+        padding: 17px;
+    }
+
+    .laporan-filter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .laporan-field {
+        min-width: 0;
+    }
+
+    #laporan-reset,
+    #laporan-cetak {
+        width: 100%;
+    }
+
+    .laporan-status-grid {
+        gap: 9px;
+    }
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 480px) {
+    #page-laporan .page-header h2 {
+        font-size: 21px;
+    }
+
+    .laporan-summary {
+        gap: 9px;
+    }
+
+    .laporan-summary-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .laporan-summary-card span {
+        font-size: 11px;
+    }
+
+    .laporan-summary-card h3 {
+        font-size: 24px;
+    }
+
+    .laporan-panel {
+        padding: 13px;
+        border-radius: 14px;
+    }
+
+    .laporan-panel-heading h3 {
+        font-size: 15px;
+    }
+
+    .laporan-filter {
+        grid-template-columns: 1fr;
+    }
+
+    .laporan-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .laporan-status-card {
+        padding: 15px;
+    }
+
+    .laporan-status-card h3 {
+        font-size: 22px;
+    }
+}
+/* =====================================
+   SIPINTAR - BACKUP & RESTORE
+===================================== */
+
+.backup-panel {
+    margin-top: 24px;
+}
+
+.backup-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.backup-action-card {
+    padding: 22px;
+    background: #F8F0E3;
+    border: 1px solid #EFE2D0;
+    border-radius: 14px;
+}
+
+.backup-action-card h4 {
+    margin: 0 0 8px;
+    color: #60351F;
+}
+
+.backup-action-card p {
+    margin: 0 0 18px;
+    color: #89674F;
+    line-height: 1.6;
+}
+
+.backup-action-card button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 9px;
+    background: #60351F;
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.backup-action-card button:hover {
+    background: #89674F;
+    transform: translateY(-1px);
+}
+
+.backup-action-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pesan-backup {
+    margin-top: 16px;
+    color: #60351F;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.backup-peringatan {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #FFF3DF;
+    border-left: 4px solid #C87532;
+    border-radius: 7px;
+    color: #60351F;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+    .backup-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .backup-action-card {
+        padding: 18px;
+    }
+
+    .backup-action-card button {
+        width: 100%;
+    }
+}
+/* HEADER ADMIN SIPINTAR */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.topbar-admin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: auto;
+}
+
+.topbar-admin strong {
+    display: block;
+    color: var(--brown);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.topbar-admin small {
+    display: block;
+    color: var(--brown-light);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.admin-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--brown);
+    font-size: 22px;
+}
+
+#header-logout-button {
+    border: none;
+    background: var(--brown);
+    color: white;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#header-logout-button:hover {
+    background: var(--amber);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        gap: 9px;
+        padding: 12px;
+    }
+
+    .topbar-admin {
+        gap: 7px;
+    }
+
+    .admin-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+
+    .topbar-admin strong {
+        font-size: 12px;
+    }
+
+    .topbar-admin small {
+        font-size: 9px;
+    }
+
+    #header-logout-button {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+}
+/* PERBAIKAN WARNA SIDEBAR SIPINTAR */
+.sidebar {
+    background: #3F2418 !important;
+    color: #FFFFFF;
+}
+
+.menu-label {
+    color: #D8C2AE;
+}
+
+.sidebar-menu .menu-item {
+    color: #FFFFFF;
+}
+
+.sidebar-menu .menu-item:hover {
+    background: #70472F;
+    color: #FFFFFF;
+}
+
+.sidebar-menu .menu-item.active {
+    background: #C87532;
+    color: #FFFFFF;
+}
+
+.sidebar-bottom .logout-menu {
+    color: #FFFFFF;
+}
+/* PERBAIKAN WARNA SIDEBAR SIPINTAR */
+.sidebar {
+    background: #3F2418 !important;
+    color: #FFFFFF;
+}
+
+.menu-label {
+    color: #D8C2AE;
+}
+
+.sidebar-menu .menu-item {
+    color: #FFFFFF;
+}
+
+.sidebar-menu .menu-item:hover {
+    background: #70472F;
+    color: #FFFFFF;
+}
+
+.sidebar-menu .menu-item.active {
+    background: #C87532;
+    color: #FFFFFF;
+}
+
+.sidebar-bottom .logout-menu {
+    color: #FFFFFF;
+}
+/* JARAK KONTEN HALAMAN DARI SIDEBAR */
+#page-barang,
+#page-katalog,
+#page-pegawai,
+#page-peminjaman,
+#page-pengembalian,
+#page-riwayat,
+#page-laporan {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Tampilan laptop */
+@media (min-width: 701px) {
+    #page-barang,
+    #page-katalog,
+    #page-pegawai,
+    #page-peminjaman,
+    #page-pengembalian,
+    #page-riwayat,
+    #page-laporan {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+/* Tampilan HP */
+@media (max-width: 700px) {
+    #page-barang,
+    #page-katalog,
+    #page-pegawai,
+    #page-peminjaman,
+    #page-pengembalian,
+    #page-riwayat,
+    #page-laporan {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+/* JARAK KONTEN HALAMAN DARI SIDEBAR */
+#page-barang,
+#page-katalog,
+#page-pegawai,
+#page-peminjaman,
+#page-pengembalian,
+#page-riwayat,
+#page-laporan {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Tampilan laptop */
+@media (min-width: 701px) {
+    #page-barang,
+    #page-katalog,
+    #page-pegawai,
+    #page-peminjaman,
+    #page-pengembalian,
+    #page-riwayat,
+    #page-laporan {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+/* Tampilan HP */
+@media (max-width: 700px) {
+    #page-barang,
+    #page-katalog,
+    #page-pegawai,
+    #page-peminjaman,
+    #page-pengembalian,
+    #page-riwayat,
+    #page-laporan {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

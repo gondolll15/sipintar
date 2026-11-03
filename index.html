@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIPINTAR | Sistem Informasi Inventaris</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <section id="loading-screen">
+        <div class="loading-content">
+
+            <img
+                src="assets/s.png"
+                alt="Logo SIPINTAR"
+                class="sipintar-logo"
+            >
+
+            <h1>SIPINTAR</h1>
+
+            <p>Sistem Informasi Inventaris dan Peminjaman Barang Inspektorat</p>
+
+            <div class="loading-bar">
+                <div id="loading-progress"></div>
+            </div>
+
+            <h2 id="loading-percent">0%</h2>
+
+            <span>Menyiapkan aplikasi...</span>
+
+        </div>
+    </section>
+
+
+    <!-- LOGIN ADMIN -->
+    <main id="login-screen" class="hidden">
+
+        <div class="login-container">
+
+            <div class="login-brand">
+                <img
+                    src="assets/ip.png"
+                    alt="Logo Inspektorat"
+                    class="office-logo"
+                >
+
+                <img
+                    src="assets/s.png"
+                    alt="Logo SIPINTAR"
+                    class="sipintar-logo"
+                >
+
+                <h1>SIPINTAR</h1>
+
+                <p>Sistem Informasi Inventaris dan Peminjaman Barang Inspektorat</p>
+            </div>
+
+            <div class="login-form">
+
+                <h2>Selamat Datang</h2>
+
+                <p>Silakan masuk ke akun administrator</p>
+
+                <form id="login-form">
+
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Masukkan username"
+                        required
+                    >
+
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        required
+                    >
+
+                    <button type="submit">Masuk</button>
+
+                    <p id="login-message"></p>
+
+                </form>
+
+            </div>
+
+            <footer>
+                © 2026 SIPINTAR · BY YOGI PRATAMA
+            </footer>
+
+        </div>
+
+    </main>
+
+
+    <!-- DASHBOARD ADMIN -->
+    <main id="dashboard-screen" class="hidden">
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <img src="assets/s.png" alt="Logo SIPINTAR">
+
+                <div>
+                    <h2>SIPINTAR</h2>
+                    <small>Inventaris Kantor</small>
+                </div>
+            </div>
+
+            <p class="menu-label">MENU UTAMA</p>
+
+            <nav class="sidebar-menu">
+
+                <button class="menu-item active" data-page="dashboard">
+                    <span>⌂</span> Dashboard
+                </button>
+
+                <button class="menu-item" data-page="barang">
+                    <span>▣</span> Data Barang
+                </button>
+
+                <button class="menu-item" data-page="katalog">
+               <span>▦</span> Katalog Barang
+                </button>
+
+                <button class="menu-item" data-page="pegawai">
+                    <span>♙</span> Data Pegawai
+                </button>
+
+                <button class="menu-item" data-page="peminjaman">
+                    <span>⇄</span> Peminjaman
+                </button>
+
+                <button class="menu-item" data-page="pengembalian">
+                    <span>↩</span> Pengembalian
+                </button>
+
+                <button class="menu-item" data-page="riwayat">
+                    <span>◷</span> Riwayat
+                </button>
+
+                <button class="menu-item" data-page="laporan">
+                    <span>▤</span> Laporan
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button id="logout-button" class="logout-menu">
+                    Keluar
+                </button>
+            </div>
+
+        </aside>
+
+
+        <section class="main-area">
+
+           <header class="topbar">
+
+    <button id="sidebar-toggle" type="button">☰</button>
+
+    <div class="topbar-admin">
+        <span class="admin-icon"></span>
+        <div>
+            <strong>Administrator</strong>
+            <small>SIPINTAR</small>
+        </div>
+    </div>
+
+</header>
+
+
+            <!-- HALAMAN DASHBOARD -->
+            <section class="dashboard-content page-view" id="page-dashboard">
+
+                <h2>Selamat Datang, Administrator!</h2>
+
+                <p>Berikut ringkasan inventaris kantor</p>
+
+                <div class="dashboard-cards">
+
+                    <div class="dashboard-card">
+                        <span>Total Barang</span>
+                        <h3 id="total-barang">0</h3>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>Stok Tersedia</span>
+                        <h3 id="stok-tersedia">0</h3>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>Sedang Dipinjam</span>
+                        <h3 id="sedang-dipinjam">0</h3>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>Stok Menipis</span>
+                        <h3 id="stok-menipis">0</h3>
+                    </div>
+
+                </div>
+
+                <div class="welcome-panel">
+                    <h3>Selamat Bekerja!</h3>
+
+                    <p>
+                        Kelola inventaris dan peminjaman barang
+                        Inspektorat melalui SIPINTAR
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- HALAMAN DATA BARANG -->
+<section class="page-view hidden" id="page-barang">
+
+    <h2>Data Barang</h2>
+    <p>Kelola data inventaris barang kantor.</p>
+
+    <!-- FORM TAMBAH DAN EDIT BARANG -->
+    <div class="barang-form-panel">
+
+        <h3 id="form-barang-title">Tambah Barang Baru</h3>
+
+        <form id="form-barang">
+
+            <div class="form-barang-grid">
+
+                <div class="form-group">
+                    <label for="nama-barang">Nama Barang</label>
+                    <input
+                        type="text"
+                        id="nama-barang"
+                        placeholder="Contoh: Laptop Lenovo"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="kategori-barang">Kategori</label>
+                    <input
+                        type="text"
+                        id="kategori-barang"
+                        placeholder="Contoh: Elektronik"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="stok-barang">Jumlah Stok</label>
+                    <input
+                        type="number"
+                        id="stok-barang"
+                        min="0"
+                        value="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="satuan-barang">Satuan</label>
+                    <input
+                        type="text"
+                        id="satuan-barang"
+                        placeholder="Contoh: Unit, Buah, Pcs"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="foto-barang">Foto Barang</label>
+
+                <input
+                    type="file"
+                    id="foto-barang"
+                    accept="image/*"
+                    required
+                >
+
+                <small>Format gambar: JPG, PNG, atau WEBP.</small>
+
+                <div class="foto-preview-container">
+                    <img
+                        id="preview-foto-barang"
+                        alt="Preview foto barang"
+                        class="hidden"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="keterangan-barang">Keterangan</label>
+                <textarea
+                    id="keterangan-barang"
+                    rows="3"
+                    placeholder="Kondisi atau keterangan barang..."
+                ></textarea>
+            </div>
+
+            <div class="barang-form-actions">
+                <button type="submit" id="simpan-barang">
+                    Simpan Barang
+                </button>
+
+                <button
+                    type="button"
+                    id="batal-edit-barang"
+                    class="hidden"
+                >
+                    Batal Edit
+                </button>
+            </div>
+
+            <p id="pesan-barang"></p>
+
+        </form>
+
+    </div>
+
+    <!-- DAFTAR BARANG -->
+    <div class="barang-table-panel">
+
+        <h3>Daftar Inventaris Barang</h3>
+
+        <div class="barang-table-wrapper">
+
+            <table class="barang-table">
+
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nama Barang</th>
+                        <th>Kategori</th>
+                        <th>Total Stok</th>
+                        <th>Stok Tersedia</th>
+                        <th>Satuan</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftar-barang">
+
+                    <tr>
+                        <td colspan="8">Belum ada data barang.</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HALAMAN KATALOG BARANG -->
+<section class="page-view hidden" id="page-katalog">
+
+    <h2>Katalog Barang</h2>
+
+    <p>
+        Daftar koleksi inventaris barang kantor SIPINTAR.
+    </p>
+
+    <div class="katalog-header">
+        <span id="jumlah-katalog">0 jenis barang</span>
+    </div>
+
+    <div id="daftar-katalog" class="katalog-grid">
+
+        <p class="katalog-kosong">
+            Belum ada barang yang tersedia.
+        </p>
+
+    </div>
+
+</section>
+
+            <!-- HALAMAN DATA PEGAWAI -->
+<section class="page-view hidden" id="page-pegawai">
+
+    <h2>Data Pegawai</h2>
+    <p>Kelola data pegawai berdasarkan ruangan atau unit kerja.</p>
+
+    <!-- FORM DATA PEGAWAI -->
+    <div class="barang-form-panel">
+
+        <h3 id="form-pegawai-title">Tambah Pegawai Baru</h3>
+
+        <form id="form-pegawai">
+
+            <div class="form-barang-grid">
+
+                <div class="form-group">
+                    <label for="nama-pegawai">Nama Pegawai</label>
+                    <input
+                        type="text"
+                        id="nama-pegawai"
+                        placeholder="Masukkan nama pegawai"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="nip-pegawai">NIP</label>
+                    <input
+                        type="text"
+                        id="nip-pegawai"
+                        placeholder="Masukkan NIP"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="jabatan-pegawai">Jabatan</label>
+                    <input
+                        type="text"
+                        id="jabatan-pegawai"
+                        placeholder="Masukkan jabatan"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="ruangan-pegawai">Ruangan / Unit Kerja</label>
+                    <select id="ruangan-pegawai" required>
+                        <option value="">Pilih Ruangan</option>
+                        <option value="IRBAN I">IRBAN I</option>
+                        <option value="IRBAN II">IRBAN II</option>
+                        <option value="IRBAN III">IRBAN III</option>
+                        <option value="IRBAN IX">IRBAN IX</option>
+                        <option value="IRBANSUS">IRBANSUS</option>
+                        <option value="Kasubbag Umum">Kasubbag Umum</option>
+                        <option value="Kasubbag EVLAP">Kasubbag EVLAP</option>
+                        <option value="Kasubbag Perencana & Keuangan">Kasubbag Perencana & Keuangan</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="barang-form-actions">
+
+                <button type="submit" id="simpan-pegawai">
+                    Simpan Pegawai
+                </button>
+
+                <button
+                    type="button"
+                    id="batal-edit-pegawai"
+                    class="hidden"
+                >
+                    Batal Edit
+                </button>
+
+            </div>
+
+            <p id="pesan-pegawai"></p>
+
+        </form>
+
+    </div>
+
+    <!-- TABEL DATA PEGAWAI -->
+    <div class="barang-table-panel">
+
+        <h3>Daftar Pegawai</h3>
+
+        <div class="barang-table-wrapper">
+
+            <table class="barang-table">
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Pegawai</th>
+                        <th>NIP</th>
+                        <th>Jabatan</th>
+                        <th>Ruangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftar-pegawai">
+                    <tr>
+                        <td colspan="6">Belum ada data pegawai.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- HALAMAN PEMINJAMAN -->
+<section class="page-view hidden" id="page-peminjaman">
+
+    <h2>Peminjaman</h2>
+    <p>Catat peminjaman barang oleh pegawai.</p>
+
+    <div class="barang-form-panel">
+        <h3>Form Peminjaman Barang</h3>
+
+        <form id="form-peminjaman">
+
+            <div class="form-barang-grid">
+
+                <div class="form-group">
+                    <label for="peminjaman-ruangan">Ruangan / Unit Kerja</label>
+                    <select id="peminjaman-ruangan" required>
+                        <option value="">Pilih Ruangan</option>
+                        <option value="IRBAN I">IRBAN I</option>
+                        <option value="IRBAN II">IRBAN II</option>
+                        <option value="IRBAN III">IRBAN III</option>
+                        <option value="IRBAN IX">IRBAN IX</option>
+                        <option value="IRBANSUS">IRBANSUS</option>
+                        <option value="Kasubbag Umum">Kasubbag Umum</option>
+                        <option value="Kasubbag EVLAP">Kasubbag EVLAP</option>
+                        <option value="Kasubbag Perencana & Keuangan">
+                            Kasubbag Perencana & Keuangan
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="peminjaman-pegawai">Nama Pegawai</label>
+                    <select id="peminjaman-pegawai" required disabled>
+                        <option value="">Pilih Ruangan Terlebih Dahulu</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="peminjaman-barang">Nama Barang</label>
+                    <select id="peminjaman-barang" required>
+                        <option value="">Pilih Barang</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="peminjaman-jumlah">Jumlah Dipinjam</label>
+                    <input
+                        type="number"
+                        id="peminjaman-jumlah"
+                        min="1"
+                        placeholder="Masukkan jumlah"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="peminjaman-tanggal">Tanggal Peminjaman</label>
+                    <input
+                        type="date"
+                        id="peminjaman-tanggal"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="peminjaman-catatan">Catatan</label>
+                    <input
+                        type="text"
+                        id="peminjaman-catatan"
+                        placeholder="Catatan (opsional)"
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    Simpan Peminjaman
+                </button>
+            </div>
+
+            <p id="pesan-peminjaman"></p>
+
+        </form>
+    </div>
+
+    <div class="barang-table-panel">
+        <h3>Daftar Peminjaman</h3>
+
+        <div class="table-responsive">
+            <table class="barang-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Tanggal</th>
+                        <th>Ruangan</th>
+                        <th>Nama Pegawai</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftar-peminjaman">
+                    <tr>
+                        <td colspan="7">Belum ada data peminjaman.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+           <!-- HALAMAN PENGEMBALIAN -->
+<section class="page-view hidden" id="page-pengembalian">
+
+    <div class="page-header">
+        <h2>Pengembalian Barang</h2>
+        <p>Catat pengembalian barang dari pegawai.</p>
+    </div>
+
+    <!-- FORM PENGEMBALIAN -->
+    <div class="barang-form-panel">
+
+        <h3>Form Pengembalian</h3>
+
+        <form id="form-pengembalian">
+
+            <div class="form-group">
+                <label for="pengembalian-transaksi">
+                    Pilih Peminjaman
+                </label>
+
+                <select id="pengembalian-transaksi" required>
+                    <option value="">Pilih transaksi peminjaman</option>
+                </select>
+            </div>
+
+            <div id="detail-pengembalian" class="detail-pengembalian hidden">
+                <p><strong>Ruangan:</strong> <span id="detail-ruangan">-</span></p>
+                <p><strong>Nama Pegawai:</strong> <span id="detail-pegawai">-</span></p>
+                <p><strong>Nama Barang:</strong> <span id="detail-barang">-</span></p>
+                <p><strong>Jumlah Dipinjam:</strong> <span id="detail-jumlah">-</span></p>
+                <p><strong>Sudah Dikembalikan:</strong> <span id="detail-dikembalikan">-</span></p>
+                <p><strong>Sisa Pengembalian:</strong> <span id="detail-sisa">-</span></p>
+            </div>
+
+            <div class="form-group">
+                <label for="jumlah-pengembalian">
+                    Jumlah yang Dikembalikan
+                </label>
+
+                <input
+                    type="number"
+                    id="jumlah-pengembalian"
+                    min="1"
+                    step="1"
+                    placeholder="Masukkan jumlah barang"
+                    required
+                    disabled
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal-pengembalian">
+                    Tanggal Pengembalian
+                </label>
+
+                <input
+                    type="date"
+                    id="tanggal-pengembalian"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="catatan-pengembalian">
+                    Catatan
+                </label>
+
+                <textarea
+                    id="catatan-pengembalian"
+                    rows="3"
+                    placeholder="Catatan tambahan (opsional)"
+                ></textarea>
+            </div>
+
+            <button type="submit" id="simpan-pengembalian" disabled>
+                Simpan Pengembalian
+            </button>
+
+            <p id="pesan-pengembalian"></p>
+
+        </form>
+    </div>
+
+    <!-- DAFTAR PEMINJAMAN AKTIF -->
+    <div class="barang-table-panel">
+
+        <h3>Daftar Barang yang Belum Selesai Dikembalikan</h3>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Ruangan</th>
+                        <th>Nama Pegawai</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah Pinjam</th>
+                        <th>Sudah Kembali</th>
+                        <th>Sisa</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftar-pengembalian">
+                    <tr>
+                        <td colspan="9">
+                            Belum ada data peminjaman.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</section>
+
+
+          <!-- HALAMAN RIWAYAT -->
+<section class="page-view hidden" id="page-riwayat">
+
+    <div class="page-header">
+        <h2>Riwayat Transaksi</h2>
+        <p>Pantau seluruh aktivitas peminjaman dan pengembalian barang.</p>
+    </div>
+
+    <!-- RINGKASAN RIWAYAT -->
+    <div class="riwayat-summary">
+
+        <div class="riwayat-summary-card">
+            <span>Total Transaksi</span>
+            <h3 id="riwayat-total">0</h3>
+        </div>
+
+        <div class="riwayat-summary-card">
+            <span>Masih Dipinjam</span>
+            <h3 id="riwayat-aktif">0</h3>
+        </div>
+
+        <div class="riwayat-summary-card">
+            <span>Selesai</span>
+            <h3 id="riwayat-selesai">0</h3>
+        </div>
+
+    </div>
+
+    <!-- PANEL RIWAYAT -->
+    <div class="barang-table-panel riwayat-panel">
+
+        <div class="riwayat-heading">
+            <div>
+                <h3>Semua Transaksi</h3>
+                <p>Gunakan pencarian atau filter untuk menemukan transaksi.</p>
+            </div>
+        </div>
+
+        <!-- PENCARIAN DAN FILTER -->
+        <div class="riwayat-filter">
+
+            <div class="riwayat-search">
+                <span>⌕</span>
+                <input
+                    type="search"
+                    id="cari-riwayat"
+                    placeholder="Cari pegawai, barang, ruangan, atau ID..."
+                >
+            </div>
+
+            <div class="riwayat-filter-group">
+
+                <select id="filter-status-riwayat">
+                    <option value="">Semua Status</option>
+                    <option value="Dipinjam">Dipinjam</option>
+                    <option value="Dikembalikan Sebagian">Dikembalikan Sebagian</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
+
+                <input
+                    type="date"
+                    id="filter-tanggal-riwayat"
+                    aria-label="Filter tanggal transaksi"
+                >
+
+                <button
+                    type="button"
+                    id="reset-filter-riwayat"
+                >
+                    Reset Filter
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="riwayat-info">
+            <span id="jumlah-hasil-riwayat">Menampilkan 0 transaksi</span>
+        </div>
+
+        <!-- TABEL RIWAYAT -->
+        <div class="table-responsive">
+
+            <table class="barang-table">
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>ID Transaksi</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Ruangan</th>
+                        <th>Nama Pegawai</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                        <th>Dikembalikan</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftar-riwayat">
+
+                    <tr>
+                        <td colspan="9">
+                            Belum ada riwayat transaksi.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- HALAMAN LAPORAN -->
+<section class="page-view hidden" id="page-laporan">
+
+    <div class="page-header">
+        <h2>Laporan Inventaris</h2>
+        <p>Ringkasan data barang dan aktivitas peminjaman SIPINTAR.</p>
+    </div>
+
+    <!-- RINGKASAN -->
+    <div class="laporan-summary">
+
+        <div class="laporan-summary-card">
+            <span>Total Jenis Barang</span>
+            <h3 id="laporan-total-barang">0</h3>
+        </div>
+
+        <div class="laporan-summary-card">
+            <span>Stok Tersedia</span>
+            <h3 id="laporan-stok-tersedia">0</h3>
+        </div>
+
+        <div class="laporan-summary-card">
+            <span>Sedang Dipinjam</span>
+            <h3 id="laporan-sedang-dipinjam">0</h3>
+        </div>
+
+    </div>
+
+    <!-- FILTER PERIODE -->
+    <div class="laporan-panel">
+
+        <div class="laporan-panel-heading">
+            <div>
+                <h3>Filter Periode Laporan</h3>
+                <p>Pilih rentang tanggal transaksi yang ingin ditampilkan.</p>
+            </div>
+        </div>
+
+        <div class="laporan-filter">
+
+            <div class="laporan-field">
+                <label for="laporan-tanggal-mulai">Tanggal Mulai</label>
+                <input type="date" id="laporan-tanggal-mulai">
+            </div>
+
+            <div class="laporan-field">
+                <label for="laporan-tanggal-akhir">Tanggal Akhir</label>
+                <input type="date" id="laporan-tanggal-akhir">
+            </div>
+
+            <button type="button" id="laporan-reset">
+                Reset Periode
+            </button>
+
+            <button type="button" id="laporan-cetak">
+                Cetak Laporan
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- REKAP STATUS -->
+    <div class="laporan-panel">
+
+        <div class="laporan-panel-heading">
+            <div>
+                <h3>Rekap Status Transaksi</h3>
+                <p>Jumlah transaksi berdasarkan status pengembalian.</p>
+            </div>
+        </div>
+
+        <div class="laporan-status-grid">
+
+            <div class="laporan-status-card">
+                <span>Dipinjam</span>
+                <h3 id="laporan-status-dipinjam">0</h3>
+            </div>
+
+            <div class="laporan-status-card">
+                <span>Dikembalikan Sebagian</span>
+                <h3 id="laporan-status-sebagian">0</h3>
+            </div>
+
+            <div class="laporan-status-card">
+                <span>Selesai</span>
+                <h3 id="laporan-status-selesai">0</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BARANG SERING DIPINJAM -->
+    <div class="laporan-panel">
+
+        <div class="laporan-panel-heading">
+            <div>
+                <h3>Rekap Peminjaman Barang</h3>
+                <p>Daftar barang berdasarkan jumlah yang pernah dipinjam.</p>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="barang-table">
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Barang</th>
+                        <th>Total Dipinjam</th>
+                        <th>Total Dikembalikan</th>
+                        <th>Sisa Dipinjam</th>
+                    </tr>
+                </thead>
+
+                <tbody id="laporan-daftar-barang">
+                    <tr>
+                        <td colspan="5">Belum ada data peminjaman.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- RIWAYAT TRANSAKSI -->
+    <div class="laporan-panel">
+
+        <div class="laporan-panel-heading">
+            <div>
+                <h3>Detail Transaksi</h3>
+                <p>Rincian transaksi sesuai periode yang dipilih.</p>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="barang-table">
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>ID Transaksi</th>
+                        <th>Tanggal</th>
+                        <th>Ruangan</th>
+                        <th>Pegawai</th>
+                        <th>Barang</th>
+                        <th>Jumlah</th>
+                        <th>Dikembalikan</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="laporan-daftar-transaksi">
+                    <tr>
+                        <td colspan="9">Belum ada transaksi.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!-- BACKUP & RESTORE SIPINTAR -->
+<div class="laporan-panel backup-panel">
+
+    <div class="laporan-panel-header">
+        <div>
+            <h3>Backup & Restore Data</h3>
+            <p>
+                Simpan cadangan seluruh data SIPINTAR atau pulihkan
+                data dari file backup.
+            </p>
+        </div>
+    </div>
+
+    <div class="backup-actions">
+
+        <div class="backup-action-card">
+            <h4>Backup Data</h4>
+            <p>
+                Unduh data barang, pegawai, transaksi, dan foto
+                dalam satu file.
+            </p>
+
+            <button type="button" id="tombol-backup">
+                Unduh Backup
+            </button>
+        </div>
+
+        <div class="backup-action-card">
+            <h4>Restore Data</h4>
+            <p>
+                Pulihkan data SIPINTAR menggunakan file backup
+                yang sebelumnya dibuat.
+            </p>
+
+            <input
+                type="file"
+                id="file-restore"
+                accept=".json,application/json"
+                hidden
+            >
+
+            <button type="button" id="tombol-pilih-restore">
+                Pilih File Backup
+            </button>
+        </div>
+
+    </div>
+
+    <p id="pesan-backup" class="pesan-backup" aria-live="polite"></p>
+
+    <p class="backup-peringatan">
+        Perhatian: Restore akan mengganti data SIPINTAR yang sedang tersimpan.
+        Pastikan kamu sudah memiliki backup terbaru.
+    </p>
+
+</div>
+
+</section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
